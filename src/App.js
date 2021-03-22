@@ -22,7 +22,7 @@ function App() {
   },[term])
 
   return (
-    <div className="container-mx-auto">
+    <div className="container-mx-auto px-4">
 
       <h2 className="text-center text-4xl text-purple-500 my-6">Pixly <i class="fas fa-camera-retro"></i></h2>
 
@@ -31,7 +31,7 @@ function App() {
       {!isLoading && images.length===0 && <h2 className="text-5xl text-center mx-auto mt-32">No images found</h2>}
 
       {isLoading && <h2 className="text-6xl text-center mx-auto mt-32">Loading....</h2>}
-      {images && <div className="grid grid-cols-3 gap-4">
+      {images && <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {images.map(image =>{
           return <ImageCard key={image.id} image={image}/>
         })}
