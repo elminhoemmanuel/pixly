@@ -25,6 +25,7 @@ function App() {
     <div className="container-mx-auto px-4">
 
       <h2 className="text-center text-4xl text-purple-500 my-6">Pixly <i class="fas fa-camera-retro"></i></h2>
+      <p className='text-center text-sm text-purple-500 my-3'>Search and view several pictures <small>powered by pixabay api</small></p>
 
       <ImageSearch searchText = {(text) => setTerm(text)}/>
 
