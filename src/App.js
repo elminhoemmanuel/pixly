@@ -10,6 +10,7 @@ function App() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [term, setTerm] = useState('');
+  const [submitClicked, setSubmitClicked] = useState(false);
 
   useEffect(() =>{
     fetch(`https://pixabay.com/api/?key=${PIXLY_PIXABAY_API_KEY}&q=${term}&image_type=photo&pretty=true`)
@@ -19,7 +20,7 @@ function App() {
       setIsLoading(false);
     })
     .catch(err => console.log(err))
-  },[term])
+  },[submitClicked])
 
   return (
     <div className="container-mx-auto px-4">
@@ -27,7 +28,7 @@ function App() {
       <h2 className="text-center text-4xl text-purple-500 my-6">Pixly <i class="fas fa-camera-retro"></i></h2>
       <p className='text-center text-base text-purple-500 mb-3'>Search and view several pictures <small>powered by pixabay api</small></p>
 
-      <ImageSearch searchText = {(text) => setTerm(text)}/>
+      <ImageSearch searchText = {(text) => setTerm(text)} setSubmitClicked ={() => setSubmitClicked(!submitClicked)}/>
 
       {!isLoading && images.length===0 && <h2 className="text-5xl text-center mx-auto mt-32">No images found</h2>}
 
