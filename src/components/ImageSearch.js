@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ImageSearch = ({ searchText }) => {
+const ImageSearch = ({ searchText, submitClicked }) => {
 
     const [enteredtext, setSearchText] = useState('');
 
@@ -12,6 +12,7 @@ const ImageSearch = ({ searchText }) => {
     const submitSearch = (e) =>{
         e.preventDefault();
         searchText(enteredtext);
+		submitClicked()
     }
 
   return (
